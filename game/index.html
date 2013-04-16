@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="styles/styles.css" />
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+	<title>Contextual Harassment</title>
+</head>
+<body>
+
+<div id='introWrap'>
+	<div id='nav'>
+		<a href='index.html'>Home</a>
+		 -- 
+		<a href='report.php'>Bugs/Ideas</a>
+	</div>
+	<h1>Contextual Harassment</h1>
+	<p>
+		Welcome to Contextual Harassment, a modified clone of <a href="http://cardsagainsthumanity.com">Cards Against Humanity</a>. Learn how context means everything when you try to match your white cards to the seemingly unrelated black card.
+	</p>
+	<h3>How to Play <a href='.' class='toggle' show-attr='howto'>+</a></h3>
+	<div id='howto' class='hidden'>
+		<ul>
+			<li>
+				Each player gets 10 white cards
+			</li>
+			<li>
+				To play a white card, drag it and drop it on the black card.
+			</li>
+			<li>
+				At the end of each turn, every player votes for their favorite card.
+					<ul>
+						<li>
+							You can't vote for your own card, Jake.
+						</li>
+					</ul>
+			</li>
+		</ul>
+		If you encounter any bugs or have any cool ideas, submit them on our <a href='report.php'>Reports Page</a>.
+	</div>
+	<hr />
+	<h3>Select a Room Type <a href='.' class='toggle' show-attr='notice'>+</a></h3>
+	<div id='notice' class='hidden'>
+		<u><strong>THIS IS REALLY IMPORTANT!!</strong></u>
+		<p>
+			Do you have anything resembling a heart, morals, emotional intelligence, a sense of decency, goals in life, capability to love, or any other features that seperate us from the beasts?
+		</p>
+		<h3><u><strong>PLAY THE GAME IN SAFE MODE!</strong></u></h3>
+		<p>
+			Remember, The inspiration for this game is called <em><strong>--Cards Against Humanity--</strong></em>. Their tagline is <strong>A party game for horribale people</strong>. 
+		</p>
+		<p>
+			They're really not joking. 
+		</p>
+	</div>
+	<hr />
+	<h3>Only proceed if you're over 18 and read the notice above</h3>
+	<div id='play'>
+		<p>
+			Is it your goal to lose at life, taking as many people down through the depths of despair as possible?
+		</p>
+		<h4>Play the full game!*</h4>
+		<form action='handle/join.php' method='post'>
+			<label for='username'>
+				Pick a screen name: 
+			</label>
+			<input type='text' id='username' name='username' required />
+			<input type='checkbox' value='1' name='safe' id='safe'/>
+			<label for='safe'>
+				<strong><em>&lt;&lt;Check for Safe Mode</em></strong>
+			</label>
+			<br />
+			<input type='submit' value='Play Now!' name='play' />
+		</form>
+		<h6>*The crew behind Contextual Harassment takes absolutely no responsibility for the inevitable degredation of your personal relationships and life choices.
+	</div>
+</div>
+
+</body>
+</html>

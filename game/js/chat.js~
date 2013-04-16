@@ -1,0 +1,24 @@
+jQuery(function($){
+	function addMessage(messageID){
+	    // check if new player has joined
+	    $.post('./handle/add-message.php',{id: messageID},
+		   function(data){
+		       if (data){
+			   $("#messages").scrollTop($("#messages")\
+						    [0].scrollHeight);
+			   $('#messages').append(data);
+		       }
+		       else{}
+		   });
+        }
+
+    function chat(){
+	setTimeout(function(){
+		var messageID = $('.chatMessage').last().attr('message-\
+id');
+		addMessage(messageID);
+                chat();
+	    }, 500);
+    }
+    chat();
+    });

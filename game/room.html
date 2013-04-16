@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="styles/styles.css" />
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/logic.js"></script>
+	<script type="text/javascript" src="js/jquery-ui.js"></script>
+</head>
+<body>
+
+<div id='board'>
+	<div id='gameInfo'>
+		<div id='roomInfo'>
+			<p>
+				Room ID:
+				<br />
+				Room Type:
+				<br />
+				Leader:
+				<br />
+				Current Leader:
+			</p>
+		</div>
+		<div id='roomPlayers'>
+			<div class='player'></div>
+			<div class='player'></div>
+			<div class='player'></div>
+		</div>
+	</div>
+	<div id='gameArea'>
+		<div id='gameCard' class='droppable'>
+
+		</div>
+		<div id='reset'>
+			<a href=".">Reset Cards</a>
+		</div>
+		<div id='commit'>
+			<a href==".">Submit Card</a>
+		</div>
+		<div id='answers'>
+			<div class='answerCard draggable' id='c10'>
+			</div>
+			
+			<div class='answerCard draggable' id='c9'>
+			</div>
+			
+			<div class='answerCard draggable' id='c8'>
+			</div>
+			
+			<div class='answerCard draggable' id='c7'>
+			</div>
+			
+			<div class='answerCard draggable' id='c6'>
+			</div>
+			
+			<div class='answerCard draggable' id='c5'>
+			</div>
+			
+			<div class='answerCard draggable' id='c4'>
+			</div>
+			
+			<div class='answerCard draggable' id='c3'>
+			</div>
+			
+			<div class='answerCard draggable' id='c2'>
+			</div>
+			
+			<div class='answerCard draggable' id='c1'>
+			</div>
+			
+		</div>
+		<div class='player midPlay draggable' id='p1'></div>
+		<a href='report.php' target='_blank' id='reportLink'>
+			Report a bug
+			<br />
+			or
+			<br />
+			Submit an idea
+		</a>
+	</div>
+	<div class='clear'></div>
+</div>
+
+</body>
+</html>
