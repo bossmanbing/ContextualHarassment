@@ -22,24 +22,18 @@ else{
 // // select the id for the most recently created room
 $room = mysql_get_var("SELECT id FROM room WHERE type = $safeType LIMIT 1");
 
+// time to determine last click
+$now = time();
+
 if (empty($room)){
 	mysql_query("INSERT INTO room (type) VALUES ($safeType)");
 	$room = mysql_insert_id();
-	echo "room = $room";
 }
 
 else{}
 
-// time to determine last click
-$now = time();
-
-// delete all inactive players
-mysql_query("DELETE FROM players
-			WHERE last_action <= ('$now'- 600)")
-			or die(mysql_error());
-
 // check to see if the selected room is already in use
-$chkQry = "SELECT id FROM players WHERE room = '$room'";
+$chkQry = "SELECT id FROM players WHERE room = '$room' LIMIT 7";
 $chkRes = mysql_query($chkQry) or die(mysql_error());
 
 // if nobody is playing in the room, delete all of the data associated with it
@@ -49,36 +43,31 @@ if (mysql_num_rows($chkRes) == 0){
 	mysql_query("DELETE FROM answers WHERE room = '$room'");
 	mysql_query("DELETE FROM chat WHERE room = '$room'");
 }
+
 else{}
 
-// add player to the room
-$qry = "INSERT INTO players (name, room) VALUES ('$username', '$room')";
-mysql_query($qry) or die(mysql_error());
-$PID = mysql_insert_id();
-
 // make sure the room has not passed capacity
-$rmQry = "SELECT id FROM players WHERE room='$room'";
-$res = mysql_query($rmQry) or die(mysql_error());
 // create a new room for the player if the last room is full
-// also update the player info to reflect the new room, and change the value of room variable to new room
-if (mysql_num_rows($res) > 7){
+// also insert the player into the new room
+
+if (mysql_num_rows($chkRes) >= 7){
 	$newQry = "INSERT INTO room (type) VALUES ($safeType)";
 	mysql_query($newQry) or die(mysql_error());
 	$room = mysql_insert_id();
 	
-	$upQry = "UPDATE players SET room=$room WHERE name='$username'";
-	mysql_query($upQry) or die(mysql_error());
+	$qry = "INSERT INTO players (name, room, last_action) VALUES ('$username', '$room', '$now')";
+	mysql_query($qry) or die(mysql_error());
+	$PID = mysql_insert_id();
 }
 
-else{}
+else{
+	$qry = "INSERT INTO players (name, room, last_action) VALUES ('$username', '$room', '$now')";
+	mysql_query($qry) or die(mysql_error());
+	$PID = mysql_insert_id();
+}
 
 // set session ID to user DB ID
 $_SESSION['PID'] = $PID;
-// set last click for user to NOW
-mysql_query("UPDATE players 
-			SET last_action = '$now' 
-			WHERE id = '$PID' LIMIT 1") 
-			or die(mysql_error());
 			
 $countQry = "SELECT room FROM carddist WHERE room = '$room' LIMIT 1";
 $countRes = mysql_query($countQry) or die(mysql_error());
