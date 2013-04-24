@@ -1,6 +1,16 @@
 jQuery(function($){
 	$('.hidden').hide();
 	//$('#play').hide();
+	
+	$('#safe').mousedown(function(){
+		if ($(this).attr('checked')){
+			$('#safeWarn').text('***Safe Mode has been TURNED OFF***');
+		}
+		if (!$(this).attr('checked')){
+			$('#safeWarn').text('Safe Mode is ON');
+		}
+	});
+		
 	$('.toggle').click(function(){
 		var show = $(this).attr('show-attr');
 		$('#'+show).slideToggle('fast');

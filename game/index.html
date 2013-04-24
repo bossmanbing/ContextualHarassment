@@ -65,10 +65,10 @@
 				Pick a screen name: 
 			</label>
 			<input type='text' id='username' name='username' required />
-			<input type='checkbox' value='1' name='safe' id='safe'/>
-			<label for='safe'>
-				<strong><em>&lt;&lt;Check for Safe Mode</em></strong>
-			</label>
+			<input type='checkbox' value='1' class='warn' name='safe' id='safe' checked/>
+			<span class='warn' id='safeWarn'>
+				&lt;&lt;Safe Mode checked by default
+			</span>
 			<br />
 			<input type='submit' value='Play Now!' name='play' />
 		</form>

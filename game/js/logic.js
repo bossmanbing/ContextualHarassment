@@ -1,6 +1,6 @@
 var players = [];
 jQuery(function($){
-	$(chat());
+	chat();
 	// hide options to reset and submit cards by default
 	$('#reset').hide();
 	$('#commit').hide();
@@ -130,7 +130,7 @@ jQuery(function($){
 	});
 	
 	function addMessage(messageID){
-		// check if new player has joined
+		// check for new messages in the chat table
 		$.post('./handle/add-message.php',{id: messageID},
 			function(data){
 				if (data){

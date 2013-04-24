@@ -354,3 +354,8 @@ body{
 .smallText{
 	font-size: 10px;
 }
+
+#safeWarn{
+	font-weight: bold;
+	font-style: italic;
+}
