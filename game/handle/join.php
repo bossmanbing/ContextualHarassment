@@ -46,6 +46,10 @@ if (mysql_num_rows($chkRes) == 0){
 
 else{}
 
+// Delete inactive players
+
+mysql_query("DELETE FROM players WHERE ($now - last_action) > 600 LIMIT 7") or die(mysql_error());
+
 // make sure the room has not passed capacity
 // create a new room for the player if the last room is full
 // also insert the player into the new room
